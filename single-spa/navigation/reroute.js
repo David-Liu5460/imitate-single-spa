@@ -8,6 +8,7 @@ import {
   getAppChanges,
   shouldBeActive,
 } from "../applications/app.help";
+import { capturedEventListeners } from "./navigation-events"; 
 import { started } from "../start";
 
 function flatternFnArray(fns) {
@@ -93,6 +94,12 @@ function tryBootstrapAndMount(app, unmountPromises) {
   return Promise.resolve().then(() => {
     if (shouldBeActive(app)) {
       return toBootstrapPromise(app).then((app) => {
+        /*********************************** */
+        // 拿到对象去循环
+        console.log('路由切换');
+        capturedEventListeners.hashchange.forEach(element => {
+            element();
+        });
         unmountPromises.then(() => toMountPromise(app));
       });
     }

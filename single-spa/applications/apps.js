@@ -10,6 +10,7 @@
 
 import { NOT_LOADED } from "./app.help";
 import { reroute } from "../navigation/reroute";
+// import { start } from "../single-spa";
 
 
 export const apps = []; // 这里存放所有的应用
@@ -37,3 +38,9 @@ export function registerApplication(appName, loadApp, activateWhen, custom) {
 //     location => location.hash === '#/a', // 路径匹配到后会加载应用
 //     customProps
 // )
+
+// start();
+
+// window.addEventListener('hashchange', () => {
+//     console.log('hashchange');
+// })
