@@ -32,7 +32,7 @@ function toLoadPromise(app) {
     // 传进来的三个函数 bootstrap mount unmount
     app.loadApp().then((val) => {
       const { bootstrap, mount, unmount } = val;
-      app.sstatus = NOT_BOOTSTRAPPED;
+      app.status = NOT_BOOTSTRAPPED;
       app.bootstrap = flatternFnArray(bootstrap);
       app.mount = flatternFnArray(mount);
       app.ummount = flatternFnArray(unmount);
